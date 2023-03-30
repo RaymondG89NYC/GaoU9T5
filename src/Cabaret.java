@@ -51,7 +51,22 @@ public class Cabaret {
     public void groupRehearsal(){
         for(Performer p : performers){
             System.out.println("REHEARSAL CALL! " + p.getName());
-            p.rehearse();
+            if(p instanceof Comedian) {
+                Comedian temp = (Comedian) p;
+                temp.rehearse(false);
+            }
+            else{
+                p.rehearse();
+            }
+        }
+    }
+    public void cabaretShow(){
+        for(Performer p : performers){
+            System.out.println("Welcome to the cabaret! Next act up... " + p.getName());
+            if(p instanceof Dancer) {
+                ((Dancer) p).pirouette(2);
+            }
+            p.perform();
         }
     }
 }
